@@ -24,15 +24,18 @@ takes the encoded password and returns the original password
 opposite of encoder function
 """
 
-
-def decoder():
-    pass
+#Alexis Jimenez
+def decode(encoded_password): #takes in the encoded_password as argument
+    decoded_password = "" #will contain decoded password
+    for num in encoded_password:
+        decoded_password += str((int(num) - 3) % 10) #subtracts 3 and ensures the number is between 0 and 9
+    return decoded_password
 
 
 def main():
     while True:
 
-        print("Menu\n-------------\n1. Encode\n2. Decode\n3. Quit")
+        print("\nMenu\n-------------\n1. Encode\n2. Decode\n3. Quit\n")
         option = input("Please enter an option: ")
 
         if option == "1":
@@ -41,7 +44,8 @@ def main():
             print("Your password has been encoded and stored!", encoded_password)  # encoded password stored
 
         if option == "2":
-            pass
+            #following print statement calls the function for encoded and then for decoded password
+            print(f"The encoded password is {encoded_password}, and the original password is {decode(encoded_password)}.")
 
         if option == "3":
             return False
