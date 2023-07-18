@@ -11,7 +11,7 @@ each digit shifted up by 3 numbers
 
 def encoder(password):  # encoder function
     encoded_password = ""  # open string format
-    for num in password():  # for loop checks each integer in the string
+    for num in password:  # for loop checks each integer in the string
         digit = str(int(num) + 3)  # adds the value by 3
         encoded_password += digit
 
@@ -34,5 +34,11 @@ def main():
     option = input("Please enter an option: ")
 
     if option == "1":
-        encoded = input("Please enter your password to encode: ")
-        print("Your password has been encoded and stored!")
+        password = input("Please enter your password to encode: ")
+        encoded_password = encoder(password)  # encoder function takes password and encodes it
+        print("Your password has been encoded and stored!", encoded_password)  # encoded password stored
+
+
+if __name__ == '__main__':
+    main()
+
